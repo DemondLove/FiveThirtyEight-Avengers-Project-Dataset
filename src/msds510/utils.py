@@ -58,6 +58,22 @@ def PythonFriendlyHeaders():
         fieldnames = [row.strip('?') for row in fieldnames]
         fieldnames = [row.replace('/','_') for row in fieldnames]
         fieldnames = [row.replace(' ','_') for row in fieldnames]
+        fieldnames.append('month_joined')
+
+        def get_month(month, year):
+            if int(year) == 1900:
+                return ''
+            elif int(year) <=2000:
+                return strptime(month,'%b-%y').tm_mon
+            else:
+                return strptime(month,'%d-%b').tm_mon
+        def return_bool(input):
+            if input == '':
+                pass
+            elif input == 'YES':
+                return 'True'
+            else:
+                return 'False'
 
         with open('/Users/Love/Documents/GitHub/msds510/data/processed/avengers_processed.csv', 'w') as new_file:
             csv_writer = csv.writer(new_file, delimiter=',')
@@ -66,4 +82,16 @@ def PythonFriendlyHeaders():
             next(csv_reader)
 
             for line in csv_reader:
+                line.append(get_month(line[6], line[7]))
+                line[3] = return_bool(line[3])
+                line[10] = return_bool(line[10])
+                line[11] = return_bool(line[11])
+                line[12] = return_bool(line[12])
+                line[13] = return_bool(line[13])
+                line[14] = return_bool(line[14])
+                line[15] = return_bool(line[15])
+                line[16] = return_bool(line[16])
+                line[17] = return_bool(line[17])
+                line[18] = return_bool(line[18])
+                line[19] = return_bool(line[19])
                 csv_writer.writerow(line)
