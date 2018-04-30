@@ -52,3 +52,4 @@ if __name__ == '__main__':
         f.write('## Notes' + '\n')
         f.write(''+str(c[t][20]) + '\n')
         t += 1
+    f.close()
