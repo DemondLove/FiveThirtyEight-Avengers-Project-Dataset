@@ -1,17 +1,17 @@
 from time import strptime
 import datetime
 
-def get_month(intro):
-    if '88' in intro:
-        return strptime(intro,'%b-%y').tm_mon
-    elif '89' in intro:
-        return strptime(intro,'%b-%y').tm_mon
+def get_month(month, year):
+    if int(year) == 1900:
+        return ''
+    elif int(year) <=2000:
+        return strptime(month,'%b-%y').tm_mon
     else:
-        return strptime(intro,'%d-%b').tm_mon
+        return strptime(month,'%d-%b').tm_mon
 
 def get_date_joined(year, intro):
     y = int(year)
-    m = get_month(intro)
+    m = get_month(intro, year)
     return datetime.date(y, m, 1)
 
 def days_since_joined(year, intro):
@@ -19,6 +19,11 @@ def days_since_joined(year, intro):
     d1 = datetime.date.today()
     delta = d1 - d0
     return delta.days
+
+def years_since_joined(year, intro):
+    d1 = datetime.date.today()
+    delta = int(d1.year) - int(year)
+    return delta
 
 import csv
 
