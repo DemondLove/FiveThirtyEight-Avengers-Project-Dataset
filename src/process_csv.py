@@ -6,6 +6,7 @@ if __name__ == '__main__':
 
     utils.dict_writer(
         '/Users/Love/Documents/GitHub/msds510/data/interim/avengers_utf8.csv',
-        '/Users/Love/Documents/GitHub/msds510/data/processed/avengers_processed.csv')
+        '/Users/Love/Documents/GitHub/msds510/data/processed/avengers_processed.csv'
+    )
 
     utils.python_friendly_headers()
