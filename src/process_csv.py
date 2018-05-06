@@ -1,3 +1,6 @@
+'''
+Module to input interim file and export processed file w/ correctly formatted headers
+'''
 if __name__ == '__main__':
     import sys
     sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')

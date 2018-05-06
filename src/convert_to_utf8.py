@@ -1,7 +1,13 @@
+'''
+Module to input ISO-8859-1 encoded avengers raw file and export utf8 encoded file.
+'''
+
 import sys
+
 
 def main():
     print (sys.path)
+
 
 if __name__ == '__main__':
     main()

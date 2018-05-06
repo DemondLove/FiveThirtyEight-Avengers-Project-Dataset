@@ -1,3 +1,6 @@
+'''
+Use the csv module ot read in csv file using dictionary
+'''
 import csv
 
 def DictReader(input):
@@ -6,4 +9,3 @@ def DictReader(input):
         lines = []
         for line in csv_reader:
             lines.append(line)
-        # print (lines[159])

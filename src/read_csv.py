@@ -1,4 +1,8 @@
+'''
+File to read in a csv file
+'''
 import csv
+
 
 def Reader(input):
     with open(input, 'r') as csv_file:

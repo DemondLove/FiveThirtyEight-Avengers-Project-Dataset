@@ -1,7 +1,19 @@
+'''
+Utility module with functions to support msds510 avengers project
+'''
+
+
 from time import strptime
 import datetime
 
+
 def get_month(month, year):
+    '''
+    Function to pull the month from a formatted date field
+    :param month: formatted date
+    :param year: full year string
+    :return: month of formatted date
+    '''
     if int(year) == 1900:
         return ''
     elif int(year) <=2000:
@@ -9,25 +21,53 @@ def get_month(month, year):
     else:
         return strptime(month,'%d-%b').tm_mon
 
+
 def get_date_joined(year, intro):
+    '''
+    Function to pull the month and year, using get_month function
+    :param year: full date string
+    :param intro: formatted date
+    :return: year and month
+    '''
     y = int(year)
     m = get_month(intro, year)
     return datetime.date(y, m, 1)
 
+
 def days_since_joined(year, intro):
+    '''
+    Function to calculate how many days ago the superhero joined
+    :param year: full year string
+    :param intro: formatted date
+    :return: calculated days ago from today
+    '''
     d0 = get_date_joined(year, intro)
     d1 = datetime.date.today()
     delta = d1 - d0
     return delta.days
 
+
 def years_since_joined(year, intro):
+    '''
+    Function to pull the how many years ago the superhero joined
+    :param year: full year string
+    :return: calculated years ago from today
+    '''
     d1 = datetime.date.today()
     delta = int(d1.year) - int(year)
     return delta
 
+
 import csv
 
+
 def DictWriter(input, output):
+    '''
+    Use csv module to dictionary to read in and write processed csv
+    :param input: interim file
+    :param output: processed file
+    :return: None
+    '''
     with open(input, 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
 
@@ -41,7 +81,12 @@ def DictWriter(input, output):
             for line in csv_reader:
                 csv_writer.writerow(line)
 
+
 def PythonFriendlyHeaders():
+    '''
+    Reformat the headers in the interim file to corrected processed file
+    :return: csv file with correct header row
+    '''
     import csv
     with open('/Users/Love/Documents/GitHub/msds510/data/interim/avengers_utf8.csv', 'r') as csv_file:
         csv_reader = csv.reader(csv_file)

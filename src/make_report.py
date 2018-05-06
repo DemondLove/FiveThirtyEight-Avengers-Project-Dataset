@@ -1,3 +1,6 @@
+'''
+File to create a markdown report of the top 10 avengers
+'''
 if __name__ == '__main__':
     import sys
     sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
