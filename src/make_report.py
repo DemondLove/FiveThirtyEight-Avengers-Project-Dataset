@@ -6,7 +6,9 @@ if __name__ == '__main__':
     sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
     import utils
     import datetime
-    F = open('/Users/Love/Documents/GitHub/msds510/data/processed/avengers_processed.csv', 'r')
+    F = open(
+        '/Users/Love/Documents/GitHub/msds510/data/processed/avengers_processed.csv',
+        'r')
     lines = F.readlines()
 
     rows = []
@@ -18,7 +20,7 @@ if __name__ == '__main__':
         k[21].rstrip()
     today = datetime.date.today()
 
-    c = [1, 2, 3, 4, 5, 6, 7, 8 ,9, 10]
+    c = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     for x in rows:
         if x[2] == '4333':
             c[0] = x
@@ -43,13 +45,16 @@ if __name__ == '__main__':
         else:
             pass
 
-    f = open('/Users/Love/Documents/GitHub/msds510/reporting/top_ten_appearances.md', 'w')
+    f = open(
+        '/Users/Love/Documents/GitHub/msds510/reporting/top_ten_appearances.md',
+        'w')
     t = 0
     while t < 10:
-        f.write('# ' +str(t + 1)+'. ' + str(c[t][1]) + '\n')
+        f.write('# ' + str(t + 1)+'. ' + str(c[t][1]) + '\n')
         f.write('* Number of Appearance: ' + str(c[t][2]) + '\n')
         f.write('* Year Joined: ' + str(c[t][7]) + '\n')
-        f.write('* Years Since Joining: ' + str(utils.years_since_joined((c[t][7]), c[t][6])) + '\n')
+        f.write('* Years Since Joining: ' + str(
+            utils.years_since_joined((c[t][7]), c[t][6])) + '\n')
         f.write('* URL: ' + str(c[t][0]) + '\n')
         f.write('\n')
         f.write('## Notes' + '\n')

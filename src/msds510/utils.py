@@ -4,7 +4,12 @@ Utility module with functions to support msds510 avengers project
 
 
 from time import strptime
+
+
 import datetime
+
+
+import csv
 
 
 def get_month(month, year):
@@ -16,10 +21,10 @@ def get_month(month, year):
     '''
     if int(year) == 1900:
         return ''
-    elif int(year) <=2000:
-        return strptime(month,'%b-%y').tm_mon
+    elif int(year) <= 2000:
+        return strptime(month, '%b-%y').tm_mon
     else:
-        return strptime(month,'%d-%b').tm_mon
+        return strptime(month, '%d-%b').tm_mon
 
 
 def get_date_joined(year, intro):
@@ -47,32 +52,35 @@ def days_since_joined(year, intro):
     return delta.days
 
 
-def years_since_joined(year, intro):
-    '''
+def years_since_joined(year):
+     '''
     Function to pull the how many years ago the superhero joined
     :param year: full year string
     :return: calculated years ago from today
-    '''
+    ''' 
     d1 = datetime.date.today()
     delta = int(d1.year) - int(year)
     return delta
 
 
-import csv
-
-
-def DictWriter(input, output):
+def dict_writer(inputvalue, output):
     '''
     Use csv module to dictionary to read in and write processed csv
     :param input: interim file
     :param output: processed file
     :return: None
     '''
-    with open(input, 'r') as csv_file:
+    with open(inputvalue, 'r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
 
         with open(output, 'w') as new_file:
-            fieldnames = ['URL', 'Name/Alias', 'Appearances', 'Current?', 'Gender', 'Probationary Introl', 'Full/Reserve Avengers Intro', 'Year', 'Years since joining', 'Honorary', 'Death1', 'Return1', 'Death2', 'Return2', 'Death3', 'Return3', 'Death4', 'Return4', 'Death5', 'Return5', 'Notes']
+            fieldnames = ['URL', 'Name/Alias', 'Appearances',
+                          'Current?', 'Gender', 'Probationary Introl',
+                          'Full/Reserve Avengers Intro', 'Year',
+                          'Years since joining', 'Honorary', 'Death1',
+                          'Return1', 'Death2', 'Return2', 'Death3',
+                          'Return3', 'Death4', 'Return4', 'Death5',
+                          'Return5', 'Notes']
 
             csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames, delimiter=',')
 
@@ -82,16 +90,20 @@ def DictWriter(input, output):
                 csv_writer.writerow(line)
 
 
-def PythonFriendlyHeaders():
+def python_friendly_headers():
     '''
     Reformat the headers in the interim file to corrected processed file
     :return: csv file with correct header row
     '''
     import csv
-    with open('/Users/Love/Documents/GitHub/msds510/data/interim/avengers_utf8.csv', 'r') as csv_file:
+    with open(
+            '/Users/Love/Documents/GitHub/msds510/data/interim/avengers_utf8.csv',
+            'r') as csv_file:
         csv_reader = csv.reader(csv_file)
 
-        F = open('/Users/Love/Documents/GitHub/msds510/data/interim/avengers_utf8.csv', 'r')
+        F = open(
+            '/Users/Love/Documents/GitHub/msds510/data/interim/avengers_utf8.csv',
+            'r')
         lines = F.readlines()
 
         rows = []
@@ -106,26 +118,29 @@ def PythonFriendlyHeaders():
         fieldnames = [row.lower() for row in fieldnames]
         fieldnames = [row.rstrip() for row in fieldnames]
         fieldnames = [row.strip('?') for row in fieldnames]
-        fieldnames = [row.replace('/','_') for row in fieldnames]
-        fieldnames = [row.replace(' ','_') for row in fieldnames]
+        fieldnames = [row.replace('/', '_') for row in fieldnames]
+        fieldnames = [row.replace(' ', '_') for row in fieldnames]
         fieldnames.append('month_joined')
 
         def get_month(month, year):
             if int(year) == 1900:
                 return ''
-            elif int(year) <=2000:
-                return strptime(month,'%b-%y').tm_mon
+            elif int(year) <= 2000:
+                return strptime(month, '%b-%y').tm_mon
             else:
-                return strptime(month,'%d-%b').tm_mon
-        def return_bool(input):
-            if input == '':
+                return strptime(month, '%d-%b').tm_mon
+
+        def return_bool(inputvalue):
+            if inputvalue == '':
                 pass
-            elif input == 'YES':
+            elif inputvalue == 'YES':
                 return 'True'
             else:
                 return 'False'
 
-        with open('/Users/Love/Documents/GitHub/msds510/data/processed/avengers_processed.csv', 'w') as new_file:
+        with open(
+                '/Users/Love/Documents/GitHub/msds510/data/processed/avengers_processed.csv',
+                'w') as new_file:
             csv_writer = csv.writer(new_file, delimiter=',')
 
             csv_writer.writerow(fieldnames)
