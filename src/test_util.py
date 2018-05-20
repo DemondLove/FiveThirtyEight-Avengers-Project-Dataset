@@ -1,18 +1,36 @@
 if __name__ == '__main__':
+    import unittest
+
     from util import get_value
-    x = {'a': 1, 'b': 52, 'd': 6}
-    y = ['a', 'c', 'd']
-    print(get_value(x, 'q'))
-# Out[1]:  None
 
-    print(get_value(x, 'a'))
-# Out[2]:  1
+    from util import to_int
 
-    print(get_value(x, 'b'))
-# Out[3]:  52
+    class Testto_int(unittest.TestCase):
 
-    print(get_value(y, 'b'))
-# Out[4]:  None
+        def test_float(self):
+            #Test a float to return int
+            self.assertEqual(to_int(4.0), 4)
+        def test_invalid_str(self):
+            self.assertAlmostEqual(to_int('nine'), None)
+        def test_int_input(self):
+            self.assertAlmostEqual(to_int(8), 8)
+    #
+    # class Testget_value(unittest.TestCase):
+    #     x = {'a': 1, 'b': 52, 'd': 6}
+    #     y = ['a', 'c', 'd']
+    #     pass
 
-    print(get_value(y, 'd'))
+# print(get_value(x, 'q'))
+# # Out[1]:  None
+#
+# print(get_value(x, 'a'))
+# # Out[2]:  1
+#
+# print(get_value(x, 'b'))
+# # Out[3]:  52
+#
+# print(get_value(y, 'b'))
+# # Out[4]:  None
+#
+# print(get_value(y, 'd'))
 # Out[5]:  2
