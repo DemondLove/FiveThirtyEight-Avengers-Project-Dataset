@@ -22,20 +22,14 @@ def get_value(items, value):
     :param value: index if tuple or list; value if dict
     :return:
     """
-    if type(items) == tuple:
-        if value in items:
+    try:
+        return items[value]
+    except KeyError:
+        return None
+    except TypeError:
+        try:
             return items.index(value)
-        else:
+        except ValueError:
             return None
-    elif type(items) == list:
-        if value in items:
-            return items.index(value)
-        else:
-            return None
-    elif type(items) == dict:
-        if value in items:
-            return items[value]
-        else:
-            return None
-    else:
+    except ValueError:
         return None
