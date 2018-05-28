@@ -1,8 +1,9 @@
 if __name__ == '__main__':
     import sys
-    import utils
 
     sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
+
+    import utils
 
     utils.dict_writer(
         '/Users/Love/Documents/GitHub/msds510/data/interim/avengers_utf8.csv',

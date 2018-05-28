@@ -1,13 +1,9 @@
 if __name__ == '__main__':
     import unittest
 
-    from util import get_value
+    import avenger
 
-    from util import to_int
-
-    import msds510.utils
-
-    class TestToInt(unittest.TestCase):
+    class TestAvengerClass(unittest.TestCase):
 
         def test_float(self):
             self.assertEqual(to_int(4.0), 4)

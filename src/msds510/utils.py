@@ -1,15 +1,17 @@
 '''
 Utility module with functions to support msds510 avengers project
 '''
-
-
 from time import strptime
-
 
 import datetime
 
-
 import csv
+
+import sys
+
+sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
+
+import avenger
 
 
 def get_month(month, year):
@@ -87,6 +89,9 @@ def dict_writer(inputvalue, output):
             csv_writer.writeheader()
 
             for line in csv_reader:
+                avenger.Avenger(line)
+
+            for line in csv_reader:
                 csv_writer.writerow(line)
 
 
@@ -113,7 +118,6 @@ def python_friendly_headers():
                 rows.append(row)
 
         fieldnames = rows[0]
-        rows = rows[1:]
 
         fieldnames = [row.lower() for row in fieldnames]
         fieldnames = [row.rstrip() for row in fieldnames]
