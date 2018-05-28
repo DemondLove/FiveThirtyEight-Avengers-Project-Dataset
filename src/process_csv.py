@@ -1,3 +1,7 @@
+'''
+Module is used to open avengers.csv, from FiveThirtyEight GitHub: https://github.com/fivethirtyeight/data/tree/master/avengers, already decoded from ISO-8859-1 to UTF-8.
+Then export it with proper heading formatting and data cleaning.
+'''
 if __name__ == '__main__':
     import sys
 

@@ -1,3 +1,7 @@
+'''
+Module with functions used to covert floats to integers and ff the items are a list or tuple, the function should return the integer index of where
+    the value is in the sequence. Or if the items are a dictionary, it should return the value associated with the input key.
+'''
 def to_int(x):
     """
     Converts an input value into an integer
