@@ -51,7 +51,7 @@ if __name__ == '__main__':
         f.write('* Number of Appearance: ' + str(c[t][2]) + '\n')
         f.write('* Year Joined: ' + str(c[t][7]) + '\n')
         f.write('* Years Since Joining: ' + str(
-            utils.years_since_joined((c[t][7]), c[t][6])) + '\n')
+            utils.years_since_joined((c[t][7]))) + '\n')
         f.write('* URL: ' + str(c[t][0]) + '\n')
         f.write('\n')
         f.write('## Notes' + '\n')
