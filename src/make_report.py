@@ -1,3 +1,6 @@
+'''
+Module to generate a Markdown formatted report of the top ten Avengers by the number of their appearances.
+'''
 if __name__ == '__main__':
     import sys
     sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
@@ -43,7 +46,7 @@ if __name__ == '__main__':
             pass
 
     f = open(
-        '/Users/Love/Documents/GitHub/msds510/reporting/top_ten_appearances.md',
+        '/Users/Love/Documents/GitHub/msds510/reports/top_ten_appearances.md',
         'w')
     t = 0
     while t < 10:
