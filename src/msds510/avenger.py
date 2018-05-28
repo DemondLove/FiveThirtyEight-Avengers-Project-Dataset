@@ -160,7 +160,7 @@ class Avenger:
                 pass
 
         f = open(
-            '/Users/Love/Documents/GitHub/msds510/reporting/top_ten_appearances.md', 'w')
+            '/Users/Love/Documents/GitHub/msds510/reports/top_ten_appearances.md', 'w')
         t = 0
         while t < 10:
             f.write('# ' + str(t + 1)+'. ' + str(c[t][1]) + '\n')
