@@ -1,42 +1,72 @@
 if __name__ == '__main__':
     import unittest
 
-    import avenger
+    from src.msds510.avenger import Avenger
+
+    pym_record = {
+        'appearances': '1269',
+        'current': 'YES',
+        'death1': 'YES',
+        'death2': '',
+        'death3': '',
+        'death4': '',
+        'death5': '',
+        'full_reserve_avengers_intro': 'Sep-63',
+        'gender': 'MALE',
+        'honorary': 'Full',
+        'name_alias': 'Henry Jonathan "Hank" Pym',
+        'notes': 'Merged with Ultron in Rage of Ultron Vol. 1. A funeral was held. \n',
+        'probationary_introl': '',
+        'return1': 'NO',
+        'return2': '',
+        'return3': '',
+        'return4': '',
+        'return5': '',
+        'url': 'http://marvel.wikia.com/Henry_Pym_(Earth-616)',
+        'year': '1963',
+        'years_since_joining': '52'
+    }
 
     class TestAvengerClass(unittest.TestCase):
+        hank_pym = Avenger(pym_record)
+        def test_url(self):
+            self.assertEqual(hank_pym.url(), 'http://marvel.wikia.com/Henry_Pym_(Earth-616)')
 
-        def test_float(self):
-            self.assertEqual(to_int(4.0), 4)
+        def test_name_alias(self):
+            self.assertEqual(hank_pym.name_alias(), 'Henry Jonathan "Hank" Pym')
 
-        def test_invalid_str(self):
-            self.assertAlmostEqual(to_int('nine'), None)
+        def test_appearances(self):
+            self.assertEqual(hank_pym.appearances(), '1269')
 
-        def test_int_input(self):
-            self.assertAlmostEqual(to_int(8), 8)
+        def test_is_current(self):
+            self.assertEqual(hank_pym.is_current(), None)
 
-    class TestGetValue(unittest.TestCase):
-        x = {'a': 1, 'b': 52, 'd': 6}
-        y = ['a', 'c', 'd']
+        def test_gender(self):
+            self.assertEqual(hank_pym.gender(), 'MALE')
 
-        def test_dict_NoValue(self):
-            self.assertAlmostEqual(get_value(x, 'q'), None)
+        def test_year(self):
+            self.assertEqual(hank_pym.year(), '1963')
 
-        def test_dict_valid(self):
-            self.assertAlmostEqual(get_value(x, 'a'), 1)
+        def test_date_joined(self):
+            self.assertEqual(hank_pym.date_joined(), None)
 
-        def test_dict_valid(self):
-            self.assertAlmostEqual(get_value(x, 'b'), 52)
+        def test_days_since_joining(self):
+            self.assertEqual(hank_pym.days_since_joining(), None)
 
-        def test_list_NoValue(self):
-            self.assertAlmostEqual(get_value(y, 'b'), None)
+        def test_years_since_joining(self):
+            self.assertEqual(hank_pym.years_since_joining(), '52')
 
-        def test_list_value(self):
-            self.assertAlmostEqual(get_value(y, 'd'), 2)
+        def test_notes(self):
+            self.assertEqual(hank_pym.notes(), 'Merged with Ultron in Rage of Ultron Vol. 1. A funeral was held. \n')
 
-        def test_missinginputs(self):
-            self.assertRaises(NameError, get_value())
+        def test___str__(self):
+            self.assertEqual(hank_pym.__str__(), '''[Avenger: {'appearances': '1269', 'current': 'YES', 'death1': 'YES', 'death2': '', 'death3': '', 'death4': '', 'death5': '', 'full_reserve_avengers_intro': 'Sep-63', 'gender': 'MALE', 'honorary': 'Full', 'name_alias': 'Henry Jonathan "Hank" Pym', 'notes': 'Merged with Ultron in Rage of Ultron Vol. 1. A funeral was held. \n', 'probationary_introl': '', 'return1': 'NO', 'return2': '', 'return3': '', 'return4': '', 'return5': '', 'url': 'http://marvel.wikia.com/Henry_Pym_(Earth-616)', 'year': '1963', 'years_since_joining': '52'}]''')
 
-    class TestGetDateJoined(unittest.TestCase):
+        def test___repr__(self):
+            self.assertEqual(hank_pym.__repr__(), '''[Avenger: {'appearances': '1269', 'current': 'YES', 'death1': 'YES', 'death2': '', 'death3': '', 'death4': '', 'death5': '', 'full_reserve_avengers_intro': 'Sep-63', 'gender': 'MALE', 'honorary': 'Full', 'name_alias': 'Henry Jonathan "Hank" Pym', 'notes': 'Merged with Ultron in Rage of Ultron Vol. 1. A funeral was held. \n', 'probationary_introl': '', 'return1': 'NO', 'return2': '', 'return3': '', 'return4': '', 'return5': '', 'url': 'http://marvel.wikia.com/Henry_Pym_(Earth-616)', 'year': '1963', 'years_since_joining': '52'}]''')
 
-        def test_correct(self):
-            self.assertEquals((msds510.utils.get_date_joined('1968', 'Nov-68'), '1968-11-01')
+
+    class Testtomarkdown(unittest.TestCase):
+
+        def test_to_markdown(self):
+            self.assertEquals((Avenger.to_markdown(), )

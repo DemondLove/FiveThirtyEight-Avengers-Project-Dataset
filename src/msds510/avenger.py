@@ -115,7 +115,7 @@ class Avenger:
         """
         return '[Avenger: %s]' % self.record
 
-    def to_markdown(self):
+    def to_markdown():
         import sys
         sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
         import utils
@@ -160,8 +160,7 @@ class Avenger:
                 pass
 
         f = open(
-            '/Users/Love/Documents/GitHub/msds510/reporting/top_ten_appearancesTEST.md',
-            'w')
+            '/Users/Love/Documents/GitHub/msds510/reporting/top_ten_appearances.md', 'w')
         t = 0
         while t < 10:
             f.write('# ' + str(t + 1)+'. ' + str(c[t][1]) + '\n')
@@ -175,3 +174,5 @@ class Avenger:
             f.write(''+str(c[t][20]) + '\n')
             t += 1
         f.close()
+
+print(Avenger.to_markdown())

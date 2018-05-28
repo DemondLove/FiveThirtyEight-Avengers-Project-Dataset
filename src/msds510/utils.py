@@ -11,8 +11,6 @@ import sys
 
 sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
 
-import avenger
-
 
 def get_month(month, year):
     '''
@@ -87,9 +85,6 @@ def dict_writer(inputvalue, output):
             csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames, delimiter=',')
 
             csv_writer.writeheader()
-
-            for line in csv_reader:
-                avenger.Avenger(line)
 
             for line in csv_reader:
                 csv_writer.writerow(line)
