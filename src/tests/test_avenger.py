@@ -67,6 +67,7 @@ class TestAvengerClass(unittest.TestCase):
         hank_pym = Avenger(pym_record)
         self.assertEqual(hank_pym.notes(), 'Merged with Ultron in Rage of Ultron Vol. 1. A funeral was held. \n')
 
+
 class Testtomarkdown(unittest.TestCase):
     def test_to_markdown(self):
         self.assertEqual((Avenger.to_markdown(1), None))

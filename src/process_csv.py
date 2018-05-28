@@ -5,7 +5,6 @@ Then export it with proper heading formatting and data cleaning.
 if __name__ == '__main__':
     import sys
 
-
     sys.path.append('/Users/Love/Documents/GitHub/msds510/src/msds510')
     import utils
     utils.dict_writer(

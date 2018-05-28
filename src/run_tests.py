@@ -8,11 +8,13 @@ import sys
 sys.path.append('/Users/Love/Documents/GitHub/msds510/src/tests')
 
 import test_util_date
+
 import test_util_conversion
+
 import test_avenger
 
 
-def UnitTest():
+def unittesting():
     '''
     Function to run test modules
     :return: Test results
@@ -34,4 +36,4 @@ def UnitTest():
 
 
 if __name__ == '__main__':
-    UnitTest()
+    unittesting()

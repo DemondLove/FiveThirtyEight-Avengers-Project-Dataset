@@ -2,6 +2,7 @@
 Module used for the creation of the Avenger class.
 '''
 
+
 class Avenger:
     def __init__(self, record):
         """
